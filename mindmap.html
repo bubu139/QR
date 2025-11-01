@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Test jsMind</title>
+    <link type="text/css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsmind@0.9.0/style/jsmind.css" />
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jsmind@0.9.0/es6/jsmind.js"></script>
+</head>
+<body>
+    <div id="jsmind_container" style="width: 800px; height: 500px; border: 1px solid #ccc;"></div>
+    <script>
+        var mind = {
+            "meta": { "name": "Ví dụ Mindmap", "author": "Test", "version": "1.0" },
+            "format": "node_tree",
+            "data": {
+                "id": "root",
+                "topic": "Chủ đề chính",
+                "direction": "right",
+                "children": [
+                    { "id": "node1", "topic": "Nhánh 1", "direction": "right" },
+                    { "id": "node2", "topic": "Nhánh 2", "direction": "left", "children": [
+                        { "id": "node2-1", "topic": "Sub nhánh" }
+                    ] }
+                ]
+            }
+        };
+        var options = { container: 'jsmind_container', theme: 'primary', editable: true };
+        var jm = new jsMind(options);
+        jm.show(mind);
+    </script>
+</body>
+</html>

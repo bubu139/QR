@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="App.css">
+    <title>CVT AI - Giải Toán THPT</title>
+    <script src="https://kit.fontawesome.com/8f62b2625c.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://www.geogebra.org/apps/deployggb.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    animation: {
+                        'fade-in': 'fade-in 0.3s ease-out',
+                    }
+                }
+            }
+        }
+    </script>
+     <script>
+        window.MathJax = { 
+            tex: { 
+                inlineMath: [['$', '$'], ['\\(', '\\)']], 
+                displayMath: [['$$', '$$'], ['\\[', '\\]']], 
+                processEscapes: true 
+            }, 
+            options: { 
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'] 
+            } 
+        }; 
+    //     var params = {
+    //         "appName": "graphing", 
+    //         "width": 800, 
+    //         "height": 600, 
+    //         "showToolBar": true, 
+    //         "showAlgebraInput": true, 
+    //         "showMenuBar": true,
+    //         };
+    // var ggbApplet = new GGBApplet(params, true);
+    // window.addEventListener("load", function() { 
+    //     ggbApplet.inject('ggb-element');
+    // });
+    </script>
+ 
+</head>
+<body class="min-h-screen bg-gradient-to-br from-blue-50 via-white to-cyan-100 flex items-center justify-center p-2 sm:p-4">
+    <div id="ggb-element"></div>
+
+    <div class="w-full max-w-4xl h-[calc(100vh-1rem)] sm:h-[700px] bg-white rounded-3xl shadow-2xl overflow-hidden flex flex-col border border-blue-100">
+        
+        <!-- Header -->
+        
+        <div class="bg-gradient-to-r from-blue-500 to-cyan-500 px-4 sm:px-6 py-4 sm:py-5 flex items-center gap-3 sm:gap-4 shadow-lg">
+            <div class="relative">
+                <div class="w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-full flex items-center justify-center shadow-md">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-bot w-7 h-7 text-blue-500">
+                <path d="M12 8V4H8"></path>
+                <rect width="16" height="12" x="4" y="8" rx="2"></rect>
+                <path d="M2 14h2"></path>
+                <path d="M20 14h2"></path>
+                <path d="M15 13v2"></path>
+                <path d="M9 13v2"></path>
+            </svg>
+                </div>
+                <div class="absolute bottom-0 right-0 w-3 h-3 bg-green-400 rounded-full border-2 border-white"></div>
+            </div>
+            <div class="flex-1 min-w-0">
+                <h1 class="text-lg sm:text-xl font-bold text-white truncate">📚 CVT AI - Giải Toán THPT</h1>
+                <p class="text-blue-100 text-xs sm:text-sm flex items-center gap-1">
+                    <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+                    Đang hoạt động
+                </p>
+            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sparkles w-6 h-6 text-orange-200 animate-pulse"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"></path><path d="M20 3v4"></path><path d="M22 5h-4"></path><path d="M4 17v2"></path><path d="M5 18H3">
+                        <path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"></path>
+                        <path d="M20 3v4"></path>
+                        <path d="M22 5h-4"></path>
+                        <path d="M4 17v2"></path>
+                        <path d="M5 18H3"></path>
+                        
+                        
+                        
+                        </svg>
+        </div>
+
+        <!-- Messages Container -->
+        <div class="flex-1 overflow-y-auto px-4 sm:px-6 py-4 sm:py-6 space-y-3 sm:space-y-4 bg-gradient-to-b from-white to-blue-50 scrollbar-hide" id="messages-container">
+            <!-- Messages will be inserted here -->
+            <!--<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-bot w-6 h-6 text-white"><path d="M12 8V4H8"></path><rect width="16" height="12" x="4" y="8" rx="2"></rect><path d="M2 14h2"></path><path d="M20 14h2"></path><path d="M15 13v2"></path><svg d="M9 13v2">
+                <path d="M12 8V4H8"></path>
+                <rect width="16" height="12" x="4" y="8" rx="2"></rect>
+                <path d="M2 14h2"></path>
+                <path d="M20 14h2"></path>
+                <path d="M15 13v2"></path>
+                <path d="M9 13v2"></path>
+            </svg>     -->
+        </div>
+
+        <!-- Input Area -->
+        <div class="px-4 sm:px-6 py-4 sm:py-5 bg-white border-t border-blue-100">
+            <div id="attached-files" class="flex flex-wrap gap-2 mb-2 sm:mb-3">
+                <!-- Attached files will be inserted here -->
+            </div>
+            
+            <div class="flex gap-2 sm:gap-3 items-end">
+                <input type="file" multiple accept=".pdf,.doc,.docx,.txt,image/*" id="file-input" class="hidden">
+                
+                <button id="file-button" class="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 bg-blue-100 hover:bg-blue-200 text-blue-600 rounded-xl flex items-center justify-center transition-all duration-200">
+                    <i class="fa-solid fa-plus text-base sm:text-lg"></i>
+                </button>
+                
+                <div class="flex-1 relative min-w-0">
+                    <textarea
+                        id="input-textarea"
+                        placeholder="Nhập câu hỏi của bạn..."
+                        rows="1"
+                        class="w-full px-3 sm:px-5 py-2 sm:py-3 pr-8 sm:pr-12 bg-blue-50 border-2 border-blue-200 rounded-2xl focus:outline-none focus:border-blue-400 focus:bg-white resize-none transition-all duration-200 text-gray-800 placeholder-gray-400 text-sm sm:text-base"
+                        style="min-height: 40px; max-height: 100px;"
+                    ></textarea>
+                </div>
+                
+                <button id="send-button" class="flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white rounded-xl flex items-center justify-center transition-all duration-200 shadow-lg hover:shadow-xl transform hover:scale-105 active:scale-95">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 sm:w-5 sm:h-5">
+                        <line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22,2 15,22 11,13 2,9 22,2"></polygon>
+                    </svg>
+                </button>
+            </div>
+            
+            <p class="text-xs text-gray-400 mt-2 sm:mt-3 text-center">
+                Nhấn Enter để gửi • Shift + Enter để xuống dòng
+            </p>
+        </div>
+    </div>
+<!-- Thêm vào cuối thẻ body trong index.html, trước thẻ đóng </body> -->
+
+  <!-- ---------------------------------------------------------------------------------------------------------- -->
+
+<script src="App.js"></script>
+
+<!-- Floating GeoGebra Button -->
+<button id="geogebra-float-btn" 
+        class="fixed bottom-20 right-4 sm:right-6 w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br from-blue-500 to-cyan-500 text-white rounded-full shadow-lg hover:shadow-2xl transition-all duration-300 flex items-center justify-center z-50 cursor-grab active:cursor-grabbing hover:scale-110">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 sm:w-7 sm:h-7">
+        <circle cx="12" cy="12" r="10"></circle>
+        <line x1="2" y1="12" x2="22" y2="12"></line>
+        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+    </svg>
+</button>
+
+<!-- GeoGebra Modal -->
+<div id="geogebra-modal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-[100] flex items-center justify-center p-2 sm:p-4 animate-fade-in">
+    <div class="bg-white rounded-2xl sm:rounded-3xl shadow-2xl w-full h-full sm:max-w-7xl sm:max-h-[95vh] sm:h-auto overflow-hidden flex flex-col border-2 border-blue-200">
+        <!-- Modal Header -->
+        <div class="bg-gradient-to-r from-blue-500 to-cyan-500 px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between flex-shrink-0">
+            <div class="flex items-center gap-2 sm:gap-3 min-w-0">
+                <div class="w-8 h-8 sm:w-10 sm:h-10 bg-white rounded-full flex items-center justify-center flex-shrink-0">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-blue-500">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="2" y1="12" x2="22" y2="12"></line>
+                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                    </svg>
+                </div>
+                <h2 class="text-base sm:text-xl font-bold text-white truncate">GeoGebra AI</h2>
+            </div>
+            <button id="close-geogebra" class="text-white hover:text-blue-100 transition-colors flex-shrink-0">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+        </div>
+        
+        <!-- Content Area -->
+        <div class="flex-1 flex flex-col sm:flex-row overflow-hidden">
+            <!-- AI Input Panel (Left/Top) -->
+            <div class="w-full sm:w-80 bg-gradient-to-b from-blue-50 to-white border-b sm:border-b-0 sm:border-r border-blue-200 flex flex-col">
+                <!-- Form Header -->
+                <div class="px-3 sm:px-4 py-3 border-b border-blue-200 bg-white">
+                    <h3 class="text-sm sm:text-base font-semibold text-gray-800 flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-blue-500">
+                            <path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"></path>
+                        </svg>
+                        Vẽ hình tự động
+                    </h3>
+                </div>
+
+                <!-- Input Form -->
+                <div class="flex-1 overflow-y-auto p-3 sm:p-4 space-y-3">
+                    <!-- Examples -->
+                    <div class="bg-blue-50 rounded-lg p-3 text-xs sm:text-sm">
+                        <p class="font-semibold text-blue-800 mb-2">💡 Ví dụ:</p>
+                        <ul class="space-y-1 text-gray-700">
+                            <li>• Vẽ đường tròn tâm O bán kính 3</li>
+                            <li>• Vẽ parabol y = x² - 4x + 3</li>
+                            <li>• Vẽ tam giác ABC với A(1,2), B(3,4), C(5,1)</li>
+                            <li>• Vẽ hàm sin(x) từ 0 đến 2π</li>
+                        </ul>
+                    </div>
+
+                    <!-- Input Textarea -->
+                    <div>
+                        <label class="block text-xs sm:text-sm font-medium text-gray-700 mb-2">
+                            Nhập yêu cầu vẽ hình:
+                        </label>
+                        <textarea 
+                            id="ggb-ai-input"
+                            placeholder="VD: Vẽ đồ thị hàm số y = x² - 2x + 1"
+                            class="w-full h-24 sm:h-32 px-3 py-2 text-sm border-2 border-blue-200 rounded-lg focus:outline-none focus:border-blue-400 resize-none"
+                        ></textarea>
+                    </div>
+
+                    <!-- Draw Button -->
+                    <button 
+                        id="ggb-draw-btn"
+                        class="w-full bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white font-semibold py-2.5 sm:py-3 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg flex items-center justify-center gap-2 text-sm sm:text-base"
+                    >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="m18 16 4-4-4-4"></path>
+                            <path d="m6 8-4 4 4 4"></path>
+                            <path d="m14.5 4-5 16"></path>
+                        </svg>
+                        <span id="draw-btn-text">Vẽ hình</span>
+                    </button>
+
+                    <!-- Loading Indicator -->
+                    <div id="ggb-loading" class="hidden text-center py-2">
+                        <div class="flex items-center justify-center gap-2 text-blue-600">
+                            <div class="w-2 h-2 bg-blue-500 rounded-full animate-bounce"></div>
+                            <div class="w-2 h-2 bg-blue-500 rounded-full animate-bounce" style="animation-delay: 0.1s"></div>
+                            <div class="w-2 h-2 bg-blue-500 rounded-full animate-bounce" style="animation-delay: 0.2s"></div>
+                            <span class="text-sm ml-2">Đang xử lý...</span>
+                        </div>
+                    </div>
+
+                    <!-- Result Display -->
+                    <div id="ggb-result" class="hidden">
+                        <div class="bg-green-50 border border-green-200 rounded-lg p-3">
+                            <p class="text-xs sm:text-sm font-medium text-green-800 mb-1">✓ Lệnh GeoGebra:</p>
+                            <pre id="ggb-command" class="text-xs bg-white p-2 rounded border border-green-300 overflow-x-auto text-gray-800"></pre>
+                        </div>
+                    </div>
+
+                    <!-- Error Display -->
+                    <div id="ggb-error" class="hidden">
+                        <div class="bg-red-50 border border-red-200 rounded-lg p-3">
+                            <p class="text-xs sm:text-sm text-red-700" id="ggb-error-text"></p>
+                        </div>
+                    </div>
+
+                    <!-- Clear Button -->
+                    <button 
+                        id="ggb-clear-btn"
+                        class="w-full bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium py-2 rounded-lg transition-all duration-200 text-sm"
+                    >
+                        Xóa tất cả
+                    </button>
+                </div>
+            </div>
+
+            <!-- GeoGebra Container (Right/Bottom) -->
+            <div class="flex-1 p-2 sm:p-4 bg-gradient-to-b from-white to-blue-50 overflow-hidden flex flex-col">
+                <div id="ggb-container" class="w-full h-full min-h-[300px] sm:min-h-[500px] bg-white rounded-lg sm:rounded-xl shadow-inner border border-blue-100"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+// GeoGebra AI Integration Script
+(function() {
+    const floatBtn = document.getElementById('geogebra-float-btn');
+    const modal = document.getElementById('geogebra-modal');
+    const closeBtn = document.getElementById('close-geogebra');
+    const ggbContainer = document.getElementById('ggb-container');
+    const aiInput = document.getElementById('ggb-ai-input');
+    const drawBtn = document.getElementById('ggb-draw-btn');
+    const drawBtnText = document.getElementById('draw-btn-text');
+    const clearBtn = document.getElementById('ggb-clear-btn');
+    const loading = document.getElementById('ggb-loading');
+    const result = document.getElementById('ggb-result');
+    const error = document.getElementById('ggb-error');
+    const commandDisplay = document.getElementById('ggb-command');
+    const errorText = document.getElementById('ggb-error-text');
+    
+    // API Configuration - Sử dụng API key từ file App.js
+    const API_KEY = 'AIzaSyAt0EJWAJSp55AbEYaQpR86dqmX99byTjI';
+    const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-exp:generateContent?key=${API_KEY}`;
+    
+    let isDragging = false;
+    let currentX, currentY, initialX, initialY;
+    let xOffset = 0, yOffset = 0;
+    let ggbApp = null;
+    let isGeoGebraLoaded = false;
+
+    // ============ DRAGGING FUNCTIONALITY ============
+    floatBtn.addEventListener('mousedown', dragStart);
+    floatBtn.addEventListener('touchstart', dragStart);
+    document.addEventListener('mousemove', drag);
+    document.addEventListener('touchmove', drag);
+    document.addEventListener('mouseup', dragEnd);
+    document.addEventListener('touchend', dragEnd);
+
+    function dragStart(e) {
+        if (e.type === 'touchstart') {
+            initialX = e.touches[0].clientX - xOffset;
+            initialY = e.touches[0].clientY - yOffset;
+        } else {
+            initialX = e.clientX - xOffset;
+            initialY = e.clientY - yOffset;
+        }
+        if (e.target === floatBtn) isDragging = true;
+    }
+
+    function drag(e) {
+        if (isDragging) {
+            e.preventDefault();
+            if (e.type === 'touchmove') {
+                currentX = e.touches[0].clientX - initialX;
+                currentY = e.touches[0].clientY - initialY;
+            } else {
+                currentX = e.clientX - initialX;
+                currentY = e.clientY - initialY;
+            }
+            xOffset = currentX;
+            yOffset = currentY;
+            floatBtn.style.transform = `translate3d(${currentX}px, ${currentY}px, 0)`;
+        }
+    }
+
+    function dragEnd() {
+        initialX = currentX;
+        initialY = currentY;
+        isDragging = false;
+    }
+
+    // ============ MODAL CONTROLS ============
+    floatBtn.addEventListener('click', function() {
+        if (!isDragging) {
+            modal.classList.remove('hidden');
+            if (!isGeoGebraLoaded) {
+                loadGeoGebra();
+                isGeoGebraLoaded = true;
+            }
+        }
+    });
+
+    closeBtn.addEventListener('click', () => modal.classList.add('hidden'));
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) modal.classList.add('hidden');
+    });
+
+    // ============ GEOGEBRA INITIALIZATION ============
+    function loadGeoGebra() {
+        if (typeof GGBApplet !== 'undefined') {
+            const isMobile = window.innerWidth < 640;
+            const params = {
+                "appName": "classic",
+                "width": ggbContainer.offsetWidth,
+                "height": ggbContainer.offsetHeight - 10,
+                "showToolBar": !isMobile,
+                "showAlgebraInput": true,
+                "showMenuBar": !isMobile,
+                "enableShiftDragZoom": true,
+                "showResetIcon": true,
+                "enableRightClick": !isMobile,
+                "errorDialogsActive": false,
+                "useBrowserForJS": false,
+                "allowStyleBar": true,
+                "preventFocus": false,
+                "language": "vi",
+                "appletOnLoad": function(api) {
+                    ggbApp = api;
+                    console.log('GeoGebra loaded successfully');
+                }
+            };
+            
+            const applet = new GGBApplet(params, true);
+            applet.inject('ggb-container');
+        } else {
+            ggbContainer.innerHTML = '<div class="flex items-center justify-center h-full text-gray-500"><p class="text-sm">Không thể tải GeoGebra</p></div>';
+        }
+    }
+
+    // ============ AI PROCESSING ============
+    const SYSTEM_PROMPT = `Bạn là trợ lý thông minh chuyên vẽ hình học với GeoGebra.
+
+NHIỆM VỤ: 
+1. Phân tích yêu cầu người dùng
+2. Suy nghĩ cách vẽ hợp lý (xác định các điểm, đường, hình cần thiết)
+3. Chuyển đổi sang lệnh GeoGebra chính xác
+
+QUY TRÌNH LÀM VIỆC:
+Bước 1 - SUY NGHĨ (trong <thinking>):
+- Phân tích yêu cầu: Cần vẽ gì?
+- Xác định các thành phần: Điểm nào? Đường nào? Hình nào?
+- Lên kế hoạch: Vẽ theo thứ tự nào? Cần tính toán gì?
+- Chọn tọa độ/giá trị hợp lý để hình đẹp, cân đối
+
+Bước 2 - XUẤT LỆNH:
+- Chỉ trả về lệnh GeoGebra thuần túy
+- Mỗi lệnh một dòng
+- Không có chú thích hay giải thích
+
+CÚ PHÁP GEOGEBRA:
+# Cơ bản
+- Điểm: A = (1, 2)
+- Đường thẳng qua 2 điểm: Line(A, B)
+- Đường thẳng từ phương trình: f: y = 2x + 1
+- Đoạn thẳng: Segment(A, B)
+- Đường tròn: Circle((0,0), 3) hoặc Circle(A, B)
+- Vector: v = Vector((1,2)) hoặc Vector(A, B)
+
+# Đa giác
+- Tam giác: Polygon(A, B, C)
+- Tứ giác: Polygon(A, B, C, D)
+- Đa giác đều: RegularPolygon(A, B, 6)
+
+# Hàm số
+- Parabol: f: y = x^2 - 4x + 3
+- Lượng giác: g: y = sin(x)
+- Mũ/Log: h: y = e^x
+- Phân thức: k: y = 1/x
+
+# Nâng cao
+- Giao điểm: E = Intersect(f, g)
+- Trung điểm: M = Midpoint(A, B)
+- Vuông góc: PerpendicularLine(A, f)
+- Song song: Line(A, Vector(f))
+- Tiếp tuyến: Tangent(A, c)
+
+# Màu sắc và kiểu
+- SetColor(A, "Red")
+- SetPointSize(A, 5)
+- SetLineThickness(f, 3)
+
+VÍ DỤ:
+
+Input: "Vẽ tam giác đều"
+<thinking>
+Cần vẽ tam giác đều. Chọn cách:
+- Đặt đỉnh A, B trên trục hoành cách đều
+- Tính đỉnh C sao cho AB = BC = CA
+- A = (0,0), B = (4,0), C = (2, 2√3) ≈ (2, 3.46)
+</thinking>
+Output:
+A = (0, 0)
+B = (4, 0)
+C = (2, 3.46)
+Polygon(A, B, C)
+
+Input: "Vẽ hình vuông và đường tròn nội tiếp"
+<thinking>
+Hình vuông: 4 đỉnh cách đều, tâm O
+Đường tròn nội tiếp: tâm trùng tâm hình vuông, bán kính = cạnh/2
+Chọn hình vuông cạnh 4, tâm (0,0)
+Các đỉnh: (-2,-2), (2,-2), (2,2), (-2,2)
+Bán kính đường tròn: 2
+</thinking>
+Output:
+A = (-2, -2)
+B = (2, -2)
+C = (2, 2)
+D = (-2, 2)
+Polygon(A, B, C, D)
+O = (0, 0)
+Circle(O, 2)
+
+Input: "Vẽ đồ thị hàm sin và cos trên cùng một hệ trục"
+<thinking>
+Vẽ 2 hàm lượng giác cơ bản
+Dùng màu khác nhau để phân biệt
+</thinking>
+Output:
+f: y = sin(x)
+g: y = cos(x)
+SetColor(f, "Blue")
+SetColor(g, "Red")
+
+LƯU Ý:
+- Với yêu cầu mơ hồ, hãy tự quyết định tọa độ/kích thước hợp lý
+- Ưu tiên tạo hình đẹp, cân đối, dễ nhìn
+- Với hình phức tạp, chia nhỏ thành các bước đơn giản
+- Đặt tên biến có ý nghĩa: A, B, C cho điểm; f, g, h cho hàm
+- Luôn bắt đầu với <thinking> để suy nghĩ, sau đó xuất lệnh
+
+CHỈ TRẢ VỀ: <thinking>...</thinking> sau đó là các lệnh GeoGebra thuần túy, không có text thừa.`;
+
+    async function processAIRequest(userInput) {
+        try {
+            const response = await fetch(API_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    system_instruction: {
+                        parts: [{ text: SYSTEM_PROMPT }]
+                    },
+                    contents: [{
+                        role: "user",
+                        parts: [{ text: userInput }]
+                    }]
+                })
+            });
+
+            if (!response.ok) throw new Error('API request failed');
+
+            const data = await response.json();
+            const geogebraCommands = data.candidates[0].content.parts[0].text.trim();
+            return geogebraCommands;
+        } catch (err) {
+            console.error('AI Error:', err);
+            throw new Error('Không thể xử lý yêu cầu. Vui lòng thử lại.');
+        }
+    }
+
+    function executeGeoGebraCommands(commands) {
+        if (!ggbApp) {
+            throw new Error('GeoGebra chưa sẵn sàng');
+        }
+
+        const commandLines = commands.split('\n').filter(line => line.trim());
+        
+        commandLines.forEach(cmd => {
+            try {
+                ggbApp.evalCommand(cmd.trim());
+            } catch (err) {
+                console.error('GeoGebra command error:', cmd, err);
+            }
+        });
+    }
+
+    // ============ EVENT HANDLERS ============
+    drawBtn.addEventListener('click', async function() {
+        const userInput = aiInput.value.trim();
+        
+        if (!userInput) {
+            showError('Vui lòng nhập yêu cầu vẽ hình');
+            return;
+        }
+
+        if (!ggbApp) {
+            showError('GeoGebra chưa sẵn sàng. Vui lòng đợi...');
+            return;
+        }
+
+        // Show loading
+        drawBtn.disabled = true;
+        drawBtnText.textContent = 'Đang xử lý...';
+        loading.classList.remove('hidden');
+        result.classList.add('hidden');
+        error.classList.add('hidden');
+
+        try {
+            // Call AI to get GeoGebra commands
+            const commands = await processAIRequest(userInput);
+            
+            // Execute commands in GeoGebra
+            executeGeoGebraCommands(commands);
+            
+            // Show result
+            commandDisplay.textContent = commands;
+            result.classList.remove('hidden');
+            
+        } catch (err) {
+            showError(err.message);
+        } finally {
+            drawBtn.disabled = false;
+            drawBtnText.textContent = 'Vẽ hình';
+            loading.classList.add('hidden');
+        }
+    });
+
+    clearBtn.addEventListener('click', function() {
+        if (ggbApp) {
+            ggbApp.reset();
+        }
+        aiInput.value = '';
+        result.classList.add('hidden');
+        error.classList.add('hidden');
+    });
+
+    // Enter to submit
+    aiInput.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' && e.ctrlKey) {
+            drawBtn.click();
+        }
+    });
+
+    function showError(message) {
+        errorText.textContent = message;
+        error.classList.remove('hidden');
+        result.classList.add('hidden');
+    }
+
+    // ============ RESPONSIVE HANDLING ============
+    window.addEventListener('resize', function() {
+        if (isGeoGebraLoaded && ggbApp) {
+            setTimeout(() => {
+                if (ggbApp.recalculateEnvironments) {
+                    ggbApp.recalculateEnvironments();
+                }
+            }, 100);
+        }
+    });
+})();
+</script>
+
+<style>
+#geogebra-float-btn {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#geogebra-float-btn:active {
+    transform: scale(0.95);
+}
+
+#geogebra-modal {
+    backdrop-filter: blur(4px);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+#geogebra-modal:not(.hidden) > div {
+    animation: fadeIn 0.3s ease-out;
+}
+
+/* Mobile optimizations */
+@media (max-width: 640px) {
+    #ggb-container {
+        touch-action: pan-x pan-y;
+    }
+}
+</style>
+  
+</body>
+</html>
