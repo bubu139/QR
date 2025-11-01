@@ -13,7 +13,7 @@
   const sendButton = document.getElementById('send-button');
   const attachedFilesDiv = document.getElementById('attached-files');
   
-  const API_KEY = 'AIzaSyAt0EJWAJSp55AbEYaQpR86dqmX99byTjI';
+  const API_KEY = 'AAIzaSyDAEtK2mTkZ0ICSSsctts4JBwc8d-DHQ7U';
   const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-exp:generateContent?key=${API_KEY}`;
   
   const SYSTEM_INSTRUCTION = `Bạn là một AI gia sư toán học THPT lớp 12 Việt Nam, chuyên hướng dẫn học sinh TỰ HỌC và PHÁT TRIỂN Tư DUY.
@@ -448,3 +448,4 @@
   updateUI();
   //------------------------------------------------------------------------------------------------------------------------------------
   //-------------------------
+
